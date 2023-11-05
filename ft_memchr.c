@@ -10,22 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-void  *ft_memchr(const void *s, int c, size_t n)
-{
-  size_t i;
-  unsigned char *p;
-  unsigned char ch;
+#include "libft.h"
 
-  i = 0;
-  p = (unsigned char*)s;
-  ch = (unsigned char)c;
-  while (i < n)
-  {
-    if (*p == ch)
-      return (p);
-    i++;
-    p++;
-  }
-  return (0);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+	unsigned char	ch;
+
+	i = 0;
+	p = (unsigned char *)s;
+	ch = (unsigned char)c;
+	while (i < n)
+	{
+		if (*p == ch)
+			return (p);
+		i++;
+		p++;
+	}
+	return (0);
 }

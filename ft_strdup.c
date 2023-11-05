@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
-char *ft_strdup(const char *s)
+char	*ft_strdup(const char *s)
 {
-  char *p;
-  size_t len;
+	char	*p;
+	size_t	len;
 
-  len = ft_strlen(s);
-  p = (char *)ft_calloc(len + 1, sizeof(char));
-  if (!p)
-    return (NULL);
-  while (len)
-  {
-    *p = *s;
-    s++;
-    p++;
-    len--;
-  }
-  return (p);
+	len = ft_strlen(s);
+	p = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!p)
+		return (NULL);
+	while (len)
+	{
+		*p = *s;
+		s++;
+		p++;
+		len--;
+	}
+	return (p);
 }

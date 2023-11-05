@@ -6,12 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:07:05 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/03 13:50:32 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/05 04:07:17 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -31,17 +30,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		if (little[j] == '\0')
 		{
-      p = (char *)&big[i];
+			p = (char *)&big[i];
 			return (p);
 		}
 		i++;
 	}
 	return (p);
-}
-
-int main(void)
-{
-  char *big = "Aymen is in da house";
-  char *little = "is ";
-  printf("%s", ft_strnstr(big, little, 6));
 }

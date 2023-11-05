@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-void  *ft_calloc(size_t nelem, size_t elsize)
-{
-  unsigned char *p;
+#include "libft.h"
 
-  p = (unsigned char*)malloc(nelem * elsize);
-  if (!p || !elsize || !nelem)
-    return (NULL);
-  ft_bzero(p, nelem * elsize);
-  return (p);
+void	*ft_calloc(size_t nelem, size_t elsize)
+{
+	unsigned char	*p;
+
+	p = (unsigned char *)malloc(nelem * elsize);
+	if (!p || !elsize || !nelem)
+		return (NULL);
+	ft_bzero(p, nelem * elsize);
+	return (p);
 }

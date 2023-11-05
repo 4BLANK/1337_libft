@@ -6,13 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:43:01 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/02 15:37:53 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/05 04:09:01 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

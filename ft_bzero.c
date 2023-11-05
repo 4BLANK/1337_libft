@@ -6,11 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:52:44 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/02 19:57:48 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/05 03:55:41 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		((unsigned char *)s)[i] = (unsigned char)'\0';
+		((unsigned char *)s)[i] = (unsigned char) '\0';
 		i++;
 	}
 }
