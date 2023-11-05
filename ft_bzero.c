@@ -6,11 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:52:44 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 03:55:41 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/05 14:46:02 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_bzero(void *s, size_t n)
 {
