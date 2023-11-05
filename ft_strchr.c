@@ -6,9 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:42:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/01 15:45:26 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/05 14:52:33 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
