@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 03:49:38 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/05 03:14:32 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/05 03:35:21 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-#include<stdlib.h>
+#include"libft.h"
 
-size_t	ft_strlen(const char *s);
-void ft_bzero(void *s, size_t n);
+char *ft_strdup(const char *s)
+{
+  char *p;
+  size_t len;
 
-#endif
+  len = ft_strlen(s);
+  p = (char *)ft_calloc(len + 1, sizeof(char));
+  if (!p)
+    return (NULL);
+  while (len)
+  {
+    *p = *s;
+    s++;
+    p++;
+    len--;
+  }
+  return (p);
+}

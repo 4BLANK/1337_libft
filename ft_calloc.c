@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 03:49:38 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/04 23:16:25 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/05 03:43:49 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-#define LIBFT_H
-#include<stdlib.h>
+#include"libft.h"
+void  *ft_calloc(size_t nelem, size_t elsize)
+{
+  unsigned char *p;
 
-size_t	ft_strlen(const char *s);
-void ft_bzero(void *s, size_t n);
-
-#endif
+  p = (unsigned char*)malloc(nelem * elsize);
+  if (!p || !elsize || !nelem)
+    return (NULL);
+  ft_bzero(p, nelem * elsize);
+  return (p);
+}
