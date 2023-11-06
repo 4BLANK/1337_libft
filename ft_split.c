@@ -6,82 +6,71 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:34:08 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/06 15:46:41 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/07 00:58:06 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-static size_t word_count(char const *s, char c)
+#include "libft.h"
+static size_t	word_count(const char *s, char c)
 {
   size_t count;
-  size_t i;
 
   count = 0;
-  i = 0;
-  if (s == 0)
-    return (0);
-  while (s[i] && s[i] == c)
-    i++;
-  while (s[i])
+  while (*s)
   {
-    while (s[i] && s[i] != c)
-      i++;
-    if (s[i + 1] != c)
+    while (*s && *s == c)
+      s++;
+    if (*s && *s != c)
+    {
       count++;
-    i++;
+      while (*s && *s != c)
+        s++;
+    }
   }
   return (count);
 }
 
-char **allocate_to_str(char const s, char c)
+static char *allocate_to_word(const char *s, char c)
 {
-  size_t buffer_size;
   size_t i;
-  char **p;
-  
-  buffer_size = 0;
-  p = NULL;
+  char *word;
+
   i = 0;
-  while (s[i])
-  {
-    buffer_size = 0;
-    while (s[i] != c && s[i])
-    {
-      buffer_size++;
+  word = 0;
+  while (s[i] && s[i++] != c)
       i++;
-    }
+  word = (char *)ft_calloc(i + 1, sizeof(char));
+  if (!word)
+    return (NULL);
+  i = 0;
+  while (s[i] && s[i] != c)
+  {
+    word[i] = s[i];
     i++;
   }
+  word[i] = '\0';
+  return (word);
 }
 
-char  **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-  char **res;
-  size_t buffer_size, res_size, i;
+	char	**res;
+  size_t i;
 
-  res = NULL;
-  buffer_size = 0;
+  res = (char **)ft_calloc(word_count((char *)s, c) + 1, sizeof(char));
   i = 0;
-  res_size = word_count(s, c);
-  res = (char **)ft_calloc(res_size + 1, sizeof(char *));
-  while (s[i])
+  while (*s)
   {
-    buffer_size = 0;
-    while (s[i] != c && s[i])
+    while (*s && *s == c)
+      s++;
+    if (*s && *s != c)
     {
-      buffer_size++;
+      res[i] = allocate_to_word(s, c);
       i++;
+      while (*s && *s != c)
+        s++;
     }
-    *res = (char *)ft_calloc(buffer_size + 1, sizeof(char));
-    res++;
-    i++;
   }
-  return 0;
-}
-
-#include<stdio.h>
-int main()
-{
-  char *str = 0;
-  printf("%ld\n", word_count(str, ' '));
+  res[i] = NULL;
+	return (res);
 }
