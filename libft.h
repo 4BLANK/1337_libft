@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 14:43:49 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:22:52 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	*ft_calloc(size_t nelem, size_t elsize);
 char	*ft_strdup(const char *s);
 void	ft_bzero(void *s, size_t n);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+char  *ft_strtrim(char const *s1, char const *set);
 
 #endif
