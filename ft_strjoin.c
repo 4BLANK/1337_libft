@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
+#include <stdio.h>
 
-#include<stdio.h>
-char  *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-  char *p;
-  size_t len1;
-  size_t len2;
+	char	*p;
+	size_t	len1;
+	size_t	len2;
 
-  len1 = ft_strlen(s1);
-  len2 = ft_strlen(s2);
-  p = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
-  if (!p)
-    return (NULL);
-  ft_strlcpy(p, s1, len1);
-  ft_strlcat(p, s2, len1 + len2 + 1);
-  return (p);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	p = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	if (!p)
+		return (NULL);
+	ft_strlcpy(p, s1, len1);
+	ft_strlcat(p, s2, len1 + len2 + 1);
+	return (p);
 }
