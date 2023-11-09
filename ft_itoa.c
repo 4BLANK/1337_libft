@@ -6,13 +6,11 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:34:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/07 17:21:41 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:32:44 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <limits.h>
-#include <stdio.h>
 
 static int	count_digits(long int n)
 {
