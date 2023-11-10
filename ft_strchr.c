@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:42:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 14:52:33 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/09 18:41:53 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+  char ch = c;
 	while (*s != 0)
 	{
-		if (*s == c)
+		if (*s == ch)
 			return ((char *)s);
 		s++;
 	}

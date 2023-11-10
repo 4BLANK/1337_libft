@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/09 16:46:41 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/09 16:57:44 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct    s_list
+{
+  void            *content;
+  struct s_list   *next;
+}                 t_list;
 
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
