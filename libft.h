@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/09 16:57:44 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/11 00:28:21 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 void ft_putstr_fd(char *s, int fd);
+void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
+char  *ft_strjoin(char const *s1, char const *s2);
 
 #endif

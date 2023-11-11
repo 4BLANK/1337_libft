@@ -6,19 +6,23 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 23:16:25 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 03:43:49 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:59:13 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nelem, size_t elsize)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*p;
+	void	*tab;
+	size_t	total_size;
 
-	p = (unsigned char *)malloc(nelem * elsize);
-	if (!p || !elsize || !nelem)
+	total_size = nmemb * size;
+	if (nmemb && ((total_size / nmemb) != size))
 		return (NULL);
-	ft_bzero(p, nelem * elsize);
-	return (p);
+	tab = malloc(total_size);
+	if (!tab)
+		return (NULL);
+	ft_bzero(tab, total_size);
+	return (tab);
 }

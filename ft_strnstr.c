@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:07:05 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 14:53:26 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:09:23 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,24 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	char	*p;
 
 	i = 0;
-	j = 0;
-	p = 0;
-	while (i < len && big[i])
+	if (!big && !len)
+		return (0);
+	if (little[0] == '\0' || little == big)
+		return ((char *)big);
+	while (big[i] != '\0')
 	{
 		j = 0;
-		while (big[i + j] == little[j])
+		while (big[i + j] == little[j] && (i + j) < len)
 		{
+			if (big[i + j] == '\0' && little[j] == '\0')
+				return ((char *)&big[i]);
 			j++;
 		}
 		if (little[j] == '\0')
-		{
-			p = (char *)&big[i];
-			return (p);
-		}
+			return ((char *)(big + i));
 		i++;
 	}
-	return (p);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:34:08 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/07 00:58:06 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:54:29 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static char	*allocate_to_word(const char *s, char c)
 	char	*word;
 
 	i = 0;
-	word = 0;
-	while (s[i] && s[i++] != c)
+	word = NULL;
+	while (s[i] && s[i] != c)
 		i++;
 	word = (char *)ft_calloc(i + 1, sizeof(char));
 	if (!word)
@@ -57,9 +57,11 @@ char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	size_t	i;
+	size_t	words;
 
-	res = (char **)ft_calloc(word_count((char *)s, c) + 1, sizeof(char));
 	i = 0;
+	words = word_count((char *)s, c) + 1;
+	res = (char **)ft_calloc(words, sizeof(char *));
 	while (*s)
 	{
 		while (*s && *s == c)

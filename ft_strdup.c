@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 03:14:32 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/05 03:35:21 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/10 22:36:42 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 char	*ft_strdup(const char *s)
 {
 	char	*p;
+	size_t	i;
 	size_t	len;
 
+	p = NULL;
+	i = 0;
 	len = ft_strlen(s);
+	if (!s)
+		return (NULL);
 	p = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!p)
 		return (NULL);
-	while (len)
+	while (i < len)
 	{
-		*p = *s;
-		s++;
-		p++;
-		len--;
+		p[i] = s[i];
+		i++;
 	}
+	p[i] = '\0';
 	return (p);
 }

@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:34:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/09 13:32:44 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:45:21 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ char	*ft_itoa(int n)
 	s = 0;
 	len = count_digits(num);
 	if (num == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	if (num < 0)
 	{
 		num *= -1;
 		s = 1;
 	}
-	res = (char *)ft_calloc(len + 1, sizeof(char));
+	res = (char *)ft_calloc((len + 1), sizeof(char));
 	fill_str(res, num, i, len);
 	revstr(res, len);
 	if (s)
