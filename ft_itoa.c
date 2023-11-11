@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:34:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/11 13:45:21 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:56:47 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static int	count_digits(long int n)
 	{
 		len++;
 	}
-	if (!n)
-		return (-1);
 	while (n)
 	{
 		n /= 10;
@@ -79,7 +77,7 @@ char	*ft_itoa(int n)
 		num *= -1;
 		s = 1;
 	}
-	res = (char *)ft_calloc((len + 1), sizeof(char));
+	res = (char *)ft_calloc((len + 1) , sizeof(char));
 	fill_str(res, num, i, len);
 	revstr(res, len);
 	if (s)
