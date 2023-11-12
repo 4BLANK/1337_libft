@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 16:35:01 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/10 15:05:42 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/11 20:53:22 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/11 21:16:11 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-  size_t i;
-  unsigned char* s1_uc;
-  unsigned char* s2_uc;
+ 	t_list	*new;
+	t_list	*p;
 
-  i = 0;
-  s1_uc = (unsigned char*)s1;
-  s2_uc = (unsigned char*)s2;
-  while (i < n)
-  {
-    if (s1_uc[i] != s2_uc[i])
-      return (s1_uc[i] - s2_uc[i]);
-    i++;
-  }
-  return (0);
+	new = NULL;
+	while (lst)
+	{
+		p = ft_lstnew(f(lst->content));
+		if (!p)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, p);
+		lst = lst->next;
+	}
+	return (new);
 }

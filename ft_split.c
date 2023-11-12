@@ -57,11 +57,11 @@ char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	size_t	i;
-	size_t	words;
+  size_t words;
 
 	i = 0;
-	words = word_count((char *)s, c) + 1;
-	res = (char **)ft_calloc(words, sizeof(char *));
+  words = word_count((char *)s, c) + 1;
+	res = (char **)ft_calloc(words, sizeof(char*));
 	while (*s)
 	{
 		while (*s && *s == c)
