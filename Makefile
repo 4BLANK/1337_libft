@@ -6,7 +6,7 @@
 #    By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:54:50 by amasdouq          #+#    #+#              #
-#    Updated: 2023/11/09 20:41:03 by amasdouq         ###   ########.fr        #
+#    Updated: 2023/11/12 12:28:18 by amasdouq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,12 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 
 OBJS = $(SRC:.c=.o)
 
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+				ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+				ft_lstmap.c \
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -34,12 +40,15 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS)
 
+bonus: $(BONUS_OBJS)
+	ar -rc $(NAME) $(BONUS_OBJS)
+
 clean: 
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean $(NAME)
 
-.PHONY = all, clean, fclean, re
+.PHONY = all, clean, fclean, re, bonus
