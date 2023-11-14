@@ -6,11 +6,18 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:34:08 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/11 13:54:29 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/13 21:04:59 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void ft_free(char **res, int i)
+{
+  while(i+1)
+     free(res[i--]);
+  free(res);
+}
 
 static size_t	word_count(const char *s, char c)
 {
@@ -69,6 +76,8 @@ char	**ft_split(char const *s, char c)
 		if (*s && *s != c)
 		{
 			res[i] = allocate_to_word(s, c);
+      if (!res[i])
+        ft_free(res, i);
 			i++;
 			while (*s && *s != c)
 				s++;
