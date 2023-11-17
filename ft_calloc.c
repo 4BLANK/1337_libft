@@ -25,5 +25,4 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 		return (NULL);
 	ft_bzero(p, total);
 	return (p);
-
 }

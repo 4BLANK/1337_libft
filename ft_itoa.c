@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:34:07 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/11 16:56:47 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/17 23:42:34 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	fill_str(char *res, long int n, int index, int len)
 		n /= 10;
 		index++;
 	}
+	revstr(res, len);
 }
 
 static void	revstr(char *res, int len)
@@ -77,11 +78,10 @@ char	*ft_itoa(int n)
 		num *= -1;
 		s = 1;
 	}
-	res = (char *)ft_calloc((len + 1) , sizeof(char));
+	res = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!res)
 		return (NULL);
 	fill_str(res, num, i, len);
-	revstr(res, len);
 	if (s)
 		res[0] = '-';
 	return (res);

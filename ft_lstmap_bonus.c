@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
-#include<stdio.h>
-t_list *ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
+#include "libft.h"
+#include <stdio.h>
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
- 	t_list	*new;
+	t_list	*new;
 	t_list	*p;
 
 	new = NULL;
