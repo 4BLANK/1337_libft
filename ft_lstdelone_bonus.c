@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 22:25:53 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/10 15:14:55 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/11 20:19:37 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/12 14:12:56 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
 
-int	ft_tolower(int c)
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+  del(lst->content);
+  free(lst);
 }

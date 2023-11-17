@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-void ft_free(char **res, int i)
+static void	ft_free(char **str, int i)
 {
-  while(i+1)
-     free(res[i--]);
-  free(res);
+	while (i + 1)
+		free(str[i--]);
+	free(str);
 }
 
 static size_t	word_count(const char *s, char c)
@@ -69,6 +69,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
   words = word_count((char *)s, c) + 1;
 	res = (char **)ft_calloc(words, sizeof(char*));
+	if (!res)
+		return (NULL);
 	while (*s)
 	{
 		while (*s && *s == c)
@@ -76,8 +78,11 @@ char	**ft_split(char const *s, char c)
 		if (*s && *s != c)
 		{
 			res[i] = allocate_to_word(s, c);
-      if (!res[i])
-        ft_free(res, i);
+			if (!res[i])
+			{
+				ft_free(res, i);
+				return (NULL);
+			}
 			i++;
 			while (*s && *s != c)
 				s++;

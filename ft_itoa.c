@@ -78,6 +78,8 @@ char	*ft_itoa(int n)
 		s = 1;
 	}
 	res = (char *)ft_calloc((len + 1) , sizeof(char));
+	if (!res)
+		return (NULL);
 	fill_str(res, num, i, len);
 	revstr(res, len);
 	if (s)

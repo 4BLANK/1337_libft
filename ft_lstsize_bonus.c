@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 22:25:53 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/10 15:14:55 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/11 20:04:09 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/11 20:05:35 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_tolower(int c)
+#include"libft.h"
+int ft_lstsize(t_list *lst)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+  int count;
+
+  count = 0;
+  while (lst)
+  {
+    count++;
+    lst = lst -> next;
+  }
+  return (count);
 }

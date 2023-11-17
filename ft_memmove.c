@@ -15,10 +15,10 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-  if (!n)
-    return (dest);
+	if (!n || (!dest && !src))
+		return (dest);
 	if (src > dest)
-    dest = ft_memcpy(dest, src, n);
+		dest = ft_memcpy(dest, src, n);
 	if (dest >= src)
 	{
 		while (n--)
