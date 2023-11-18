@@ -61,6 +61,13 @@ static char	*allocate_to_word(const char *s, char c)
 	return (word);
 }
 
+static void	chi_haja(const char **s, char c, size_t *i)
+{
+	(*i)++;
+	while (**s && **s != c)
+		(*s)++;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
@@ -68,6 +75,8 @@ char	**ft_split(char const *s, char c)
 	size_t	words;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	words = word_count((char *)s, c) + 1;
 	res = (char **)ft_calloc(words, sizeof(char *));
 	if (!res)
@@ -81,9 +90,7 @@ char	**ft_split(char const *s, char c)
 			res[i] = allocate_to_word(s, c);
 			if (!res[i])
 				return (ft_free(res, i));
-			i++;
-			while (*s && *s != c)
-				s++;
+			chi_haja(&s, c, &i);
 		}
 	}
 	res[i] = NULL;
