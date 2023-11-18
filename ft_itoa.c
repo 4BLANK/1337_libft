@@ -29,17 +29,6 @@ static int	count_digits(long int n)
 	return (len);
 }
 
-static void	fill_str(char *res, long int n, int index, int len)
-{
-	while (index < len)
-	{
-		res[index] = (n % 10) + '0';
-		n /= 10;
-		index++;
-	}
-	revstr(res, len);
-}
-
 static void	revstr(char *res, int len)
 {
 	int		i;
@@ -56,6 +45,17 @@ static void	revstr(char *res, int len)
 		i++;
 		len--;
 	}
+}
+
+static void	fill_str(char *res, long int n, int index, int len)
+{
+	while (index < len)
+	{
+		res[index] = (n % 10) + '0';
+		n /= 10;
+		index++;
+	}
+	revstr(res, len);
 }
 
 char	*ft_itoa(int n)
