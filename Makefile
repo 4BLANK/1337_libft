@@ -6,80 +6,48 @@
 #    By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:54:50 by amasdouq          #+#    #+#              #
-#    Updated: 2023/11/19 18:26:53 by amasdouq         ###   ########.fr        #
+#    Updated: 2023/11/19 21:41:03 by amasdouq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CFILES = 	ft_atoi.c\
-			ft_itoa.c\
-			ft_putnbr_fd.c\
-			ft_strlcpy.c\
-			ft_tolower.c\
-			ft_bzero.c\
-			ft_memchr.c\
-			ft_putstr_fd.c\
-			ft_strlen.c\
-			ft_toupper.c\
-			ft_calloc.c\
-			ft_memcmp.c\
-			ft_split.c\
-			ft_strmapi.c\
-			ft_isalnum.c\
-			ft_memcpy.c\
-			ft_strchr.c\
-			ft_strncmp.c\
-			ft_isalpha.c\
-			ft_memmove.c\
-			ft_strdup.c\
-			ft_strnstr.c\
-			ft_isascii.c\
-			ft_memset.c\
-			ft_striteri.c\
-			ft_strrchr.c\
-			ft_isdigit.c\
-			ft_putchar_fd.c\
-			ft_strjoin.c\
-			ft_strtrim.c\
-			ft_isprint.c\
-			ft_putendl_fd.c\
-			ft_strlcat.c\
-			ft_substr.c\
-
-BFILES =	ft_lstnew_bonus.c\
-			ft_lstadd_front_bonus.c\
-			ft_lstsize_bonus.c\
-			ft_lstlast_bonus.c\
-			ft_lstadd_back_bonus.c\
-			ft_lstdelone_bonus.c\
-			ft_lstclear_bonus.c\
-			ft_lstiter_bonus.c\
-			ft_lstmap_bonus.c\
-
-OFILES = $(CFILES:.c=.o)
-OBFILES = $(BFILES:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
 CC = cc
+CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
-AR = ar rc
+SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
+				ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+				ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
+				ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c \
+				ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strchr.c \
+				ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
+				ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
+				ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
+				ft_tolower.c ft_toupper.c \
+
+OBJS = $(SRC:.c=.o)
+
+BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c \
+
+BONUS_OBJS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OFILES)
-	$(AR) $(NAME) $(OFILES)
+$(NAME): $(OBJS)
 
-bonus : $(OBFILES) $(OFILES)
+bonus: $(BONUS_OBJS)
 
-$(OBFILES) : $(BFILES)
-	$(CC) $(CFLAGS) -c $(BFILES)
-	$(AR) $(NAME) $(OBFILES)
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+	ar -rc $(NAME) $@
 
-re: fclean all
+clean:
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
-clean :
-	$(RM) $(OFILES) $(OBFILES)
-
-fclean : clean
+fclean: clean
 	$(RM) $(NAME)
 
-.PHONY : clean fclean re all
+re: fclean $(NAME)
+
+.PHONY = all, clean, fclean, re, bonus
