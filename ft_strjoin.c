@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:04:35 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/10 23:03:47 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/20 20:14:03 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len1;
 	size_t	len2;
 
+  if (!s1 || !s2)
+    return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	p = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
