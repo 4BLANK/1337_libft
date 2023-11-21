@@ -12,33 +12,39 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+static	int	is_space(char c)
 {
-	int	i;
-	int	sign;
-	int	res;
+	if (c == ' ' || c == '\t' || c == '\v'
+		|| c == '\n' || c == '\r' || c == '\f')
+		return (1);
+	return (0);
+}
 
-	i = 0;
+int	ft_atoi(const char *str)
+{
+	int					sign;
+	unsigned long long	result;
+	int					i;
+
 	sign = 1;
-	res = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	result = 0;
+	i = 0;
+	while (is_space(str[i]))
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (nptr[i] == '-')
-		{
+		if (str[i] == '-')
 			sign = -1;
-		}
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		res = (res * 10) + (nptr[i] - '0');
+		result = (result * 10) + str[i] - '0';
 		i++;
 	}
-  if (result > 9223372036854775807 && sign == 1)
+	if (result > 9223372036854775807 && sign == 1)
 		return (-1);
 	if (result > 9223372036854775807 && sign == -1)
 		return (0);
-	return ((int)(res * sign));
+	return ((int)sign * result);
 }
