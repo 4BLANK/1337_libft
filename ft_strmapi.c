@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:22:49 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/07 21:01:05 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/21 07:02:17 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 
 	i = 0;
+  if (!s || !f)
+    return (NULL);
 	len = ft_strlen(s);
 	p = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!p)

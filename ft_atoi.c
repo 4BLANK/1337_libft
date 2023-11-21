@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:01:39 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/19 21:44:47 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/21 06:33:45 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,9 @@ int	ft_atoi(const char *nptr)
 		res = (res * 10) + (nptr[i] - '0');
 		i++;
 	}
-	return (res * sign);
+  if (result > 9223372036854775807 && sign == 1)
+		return (-1);
+	if (result > 9223372036854775807 && sign == -1)
+		return (0);
+	return ((int)(res * sign));
 }

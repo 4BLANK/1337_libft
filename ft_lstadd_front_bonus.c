@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:01:24 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/18 20:58:43 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/21 06:39:24 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!(*lst))
+  if (!lst)
+    return ;
+  else if (!(*lst))
 		*lst = new;
 	else
 	{

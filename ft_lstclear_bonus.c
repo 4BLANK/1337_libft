@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:40:03 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/18 21:01:53 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/21 06:42:02 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*p;
 
 	p = NULL;
-	if (!del)
+	if (!del || !lst)
 		return ;
 	while (*lst)
 	{
