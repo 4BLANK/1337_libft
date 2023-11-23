@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static	int	is_space(char c)
+static int	is_space(char c)
 {
-	if (c == ' ' || c == '\t' || c == '\v'
-		|| c == '\n' || c == '\r' || c == '\f')
+	if (c == ' ' || c == '\t' || c == '\v' || c == '\n' || c == '\r'
+		|| c == '\f')
 		return (1);
 	return (0);
 }
