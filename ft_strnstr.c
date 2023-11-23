@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 20:07:05 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/21 07:04:21 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/22 20:41:38 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			return ((char *)(big + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

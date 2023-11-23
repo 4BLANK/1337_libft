@@ -6,7 +6,7 @@
 #    By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:54:50 by amasdouq          #+#    #+#              #
-#    Updated: 2023/11/22 06:16:43 by amasdouq         ###   ########.fr        #
+#    Updated: 2023/11/23 03:16:11 by amasdouq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,10 @@ BONUS_OBJS = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rc $(NAME) $@
+	ar -rc $(NAME) $(OBJS)
 
 bonus: $(BONUS_OBJS)
+	ar -rc $(NAME) $(BONUS_OBJS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
