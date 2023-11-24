@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 01:34:08 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/17 23:38:41 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/24 20:15:21 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static char	**ft_free(char **str, int i)
 {
 	while (i + 1)
-		free(str[i--]);
+		free(str[--i]);
 	free(str);
 	return (NULL);
 }
