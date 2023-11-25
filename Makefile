@@ -6,7 +6,7 @@
 #    By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 17:54:50 by amasdouq          #+#    #+#              #
-#    Updated: 2023/11/19 21:41:03 by amasdouq         ###   ########.fr        #
+#    Updated: 2023/11/25 12:58:24 by amasdouq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,4 +50,4 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY = all, clean, fclean, re, bonus
+.PHONY : all clean fclean re bonus
