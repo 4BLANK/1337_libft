@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:01:39 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/21 06:33:45 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:43:41 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	result = 0;
 	i = 0;
+	if (!str)
+		return (0);
 	while (is_space(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -38,13 +40,10 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
-		result = (result * 10) + str[i] - '0';
-		i++;
-	}
+		result = (result * 10) + str[i++] - '0';
 	if (result > 9223372036854775807 && sign == 1)
 		return (-1);
 	if (result > 9223372036854775807 && sign == -1)
 		return (0);
-	return ((int)sign * result);
+	return ((int)(sign * result));
 }

@@ -6,7 +6,7 @@
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 23:16:25 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/24 01:48:18 by amasdouq         ###   ########.fr       */
+/*   Updated: 2023/11/27 10:41:21 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 	char	*p;
 	size_t	total;
 
+	p = NULL;
 	if (nelem > 0 && elsize > 0)
 	{
 		total = nelem * elsize;

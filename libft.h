@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasdouq <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 13:37:22 by amasdouq          #+#    #+#             */
-/*   Updated: 2023/11/11 21:40:29 by amasdouq         ###   ########.fr       */
+/*   Created: 2023/11/26 09:41:52 by amasdouq          #+#    #+#             */
+/*   Updated: 2023/11/26 09:42:22 by amasdouq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_list
 }					t_list;
 
 size_t				ft_strlen(const char *s);
-int					ft_atoi(const char *nptr);
+int					ft_atoi(const char *str);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
