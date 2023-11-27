@@ -18,21 +18,14 @@ void	*ft_calloc(size_t nelem, size_t elsize)
 	size_t	total;
 
 	p = NULL;
-	if (nelem > 0 && elsize > 0)
-	{
-		total = nelem * elsize;
-		if (nelem && ((total / nelem) != elsize))
-			return (NULL);
-		p = (void *)malloc(total);
-		if (!p)
-			return (NULL);
-		ft_bzero(p, total);
-	}
-	else if (nelem == 0 || elsize == 0)
-	{
-		p = malloc(1);
-		p[0] = 0;
-		return ((void *)p);
-	}
+	total = nelem * elsize;
+	if (!total)
+		return (malloc(0));
+	if (nelem && ((total / nelem) != elsize))
+		return (NULL);
+	p = (void *)malloc(total);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, total);
 	return ((void *)p);
 }
